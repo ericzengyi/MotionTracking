@@ -24,6 +24,7 @@
 		52AFB3E11CEAD5BE00BE33DC /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFB3E01CEAD5BE00BE33DC /* WorkoutManager.swift */; };
 		52D5E3C31CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 52D5E3C21CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements */; };
 		5F827A7E201BEA2200633D5A /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F827A7D201BEA2200633D5A /* HealthKit.framework */; };
+		A33BEA4E21EAEEDD009C6C64 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33BEA4D21EAEEDD009C6C64 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		52D5E3C21CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MotionTrackingWatchKitExtension.entitlements; sourceTree = "<group>"; };
 		5F827A7B201BEA0800633D5A /* MotionTracking WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MotionTracking WatchKit App.entitlements"; sourceTree = "<group>"; };
 		5F827A7D201BEA2200633D5A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A33BEA4C21EAEEDD009C6C64 /* SwingWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwingWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A33BEA4D21EAEEDD009C6C64 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33BEA4E21EAEEDD009C6C64 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +120,7 @@
 		52AFB38B1CEAD2D800BE33DC = {
 			isa = PBXGroup;
 			children = (
+				A33BEA4C21EAEEDD009C6C64 /* SwingWatch WatchKit Extension.entitlements */,
 				522824351CF681410019A236 /* README.md */,
 				52AFB3961CEAD2D800BE33DC /* MotionTracking */,
 				52AFB3B51CEAD2D800BE33DC /* MotionTracking WatchKit App */,
@@ -178,6 +183,7 @@
 		5F827A7C201BEA2200633D5A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A33BEA4D21EAEEDD009C6C64 /* HealthKit.framework */,
 				5F827A7D201BEA2200633D5A /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -272,7 +278,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit.watchos = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -510,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "SwingWatch WatchKit Extension.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3EQQ7JM37K;
 				INFOPLIST_FILE = "MotionTracking WatchKit Extension/Info.plist";
@@ -528,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "SwingWatch WatchKit Extension.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3EQQ7JM37K;
 				INFOPLIST_FILE = "MotionTracking WatchKit Extension/Info.plist";
