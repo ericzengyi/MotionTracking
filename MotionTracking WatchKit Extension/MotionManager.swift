@@ -53,11 +53,14 @@ class MotionManager {
         // Serial queue for sample handling and calculations.
         queue.maxConcurrentOperationCount = 1
         queue.name = "MotionManagerQueue"
+        print("MotionManager inited")
     }
 
     // MARK: Motion Manager
 
     func startUpdates() {
+        print("motionmanager startsUpdates")
+
         if !motionManager.isDeviceMotionAvailable {
             print("Device Motion is not available.")
             return
@@ -72,7 +75,12 @@ class MotionManager {
             }
 
             if deviceMotion != nil {
+                print("To process device motion")
                 self.processDeviceMotion(deviceMotion!)
+                print("Processed device motion")
+            }
+            else {
+                print("deviceMotion is nil")
             }
         }
     }
@@ -102,9 +110,9 @@ class MotionManager {
                                  deviceMotion.attitude.roll,
                                  deviceMotion.attitude.pitch,
                                  deviceMotion.attitude.yaw)
-        
         let timestamp = Date().millisecondsSince1970
-        
+        print(String(timestamp) + " " + gravityStr)
+
         os_log("Motion: %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@",
                String(timestamp),
                String(deviceMotion.gravity.x),

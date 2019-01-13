@@ -33,6 +33,7 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     
     override init() {
         super.init()
+        print("init")
         
         workoutManager.delegate = self
     }
@@ -42,6 +43,7 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     override func willActivate() {
         super.willActivate()
         active = true
+        print("willActivate")
 
         // On re-activation, update with the cached values.
         updateLabels()
@@ -50,11 +52,13 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     override func didDeactivate() {
         super.didDeactivate()
         active = false
+        print("didDeactivate")
     }
 
     // MARK: Interface Bindings
     
     @IBAction func start() {
+        print("to start workout")
         titleLabel.setText("Tracking...")
         workoutManager.startWorkout()
     }
@@ -78,10 +82,16 @@ class InterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     // MARK: Convenience
     func updateLabels() {
         if active {
-            gravityLabel.setText(gravityStr)
+            print("active")
+            //gravityLabel.setText(gravityStr)
+            gravityLabel.setText("activated")
+
             userAccelLabel.setText(userAccelStr)
             rotationLabel.setText(rotationRateStr)
             attitudeLabel.setText(attitudeStr)
+        }
+        else {
+            gravityLabel.setText("deactivated")
         }
     }
 

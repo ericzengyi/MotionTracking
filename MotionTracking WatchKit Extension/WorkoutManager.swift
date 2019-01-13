@@ -36,7 +36,9 @@ class WorkoutManager: MotionManagerDelegate {
     
     func startWorkout() {
         // If we have already started the workout, then do nothing.
+        print("startWorkout")
         if (session != nil) {
+            print("Workout already started")
             return
         }
 
@@ -58,7 +60,9 @@ class WorkoutManager: MotionManagerDelegate {
 
     func stopWorkout() {
         // If we have already stopped the workout, then do nothing.
+        print("stopWorkout")
         if (session == nil) {
+            print("Workout already stopped")
             return
         }
 
